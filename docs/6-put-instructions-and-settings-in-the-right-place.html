@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/reading-3f466840.css">
+        <link rel="stylesheet" href="theme/reading-1d51f336.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-84994a02.js";
+            window.path_to_searchindex_js = "searchindex-88eb9741.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-31301ac8.js"></script>
+        <script src="toc-badb40e2.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -181,14 +181,14 @@
                         <h1 id="6-put-instructions-and-settings-in-the-right-place"><a class="header" href="#6-put-instructions-and-settings-in-the-right-place">6 Put instructions and settings in the right place</a></h1>
 <h2 id="the-decision"><a class="header" href="#the-decision">The decision</a></h2>
 <p>Choose scope based on who should share an instruction or setting. Do not confuse natural-language guidance with an enforced security control.</p>
-<p>CLAUDE.md provides persistent project or personal context. Rules can be organized in .claude/rules, including path-scoped instructions. Relevant instruction files are assembled as context; conflicting prose is not a reliable enforcement mechanism. Keep guidance concise and inspect what loads. Auto memory is distinct from instructions maintained by the team. <a href="sources-and-further-reading.html">8</a></p>
-<p>Claude Code settings use JSON configuration with user, shared project, project-local, and managed sources. Common paths include ~/.claude/settings.json, .claude/settings.json, and .claude/settings.local.json. The current precedence and merging rules belong to settings, not to an imagined universal “last file wins” rule for all instructions. Managed policy is the appropriate area for organization-enforced configuration. <a href="sources-and-further-reading.html">9</a></p>
+<p><a href="https://code.claude.com/docs/en/memory">CLAUDE.md provides persistent project or personal context</a>. Rules can be organized in .claude/rules, including path-scoped instructions. Relevant instruction files are assembled as context; conflicting prose is not a reliable enforcement mechanism. Keep guidance concise and inspect what loads. Auto memory is distinct from instructions maintained by the team.</p>
+<p><a href="https://code.claude.com/docs/en/settings">Claude Code settings</a> use JSON configuration with user, shared project, project-local, and managed sources. Common paths include ~/.claude/settings.json, .claude/settings.json, and .claude/settings.local.json. The current precedence and merging rules belong to settings, not to an imagined universal “last file wins” rule for all instructions. Managed policy is the appropriate area for organization-enforced configuration.</p>
 <h2 id="worked-example"><a class="header" href="#worked-example">Worked example</a></h2>
 <p>A team wants every contributor to run the same tests before opening a pull request. Put the shared command and expectations in repository guidance. A developer’s preferred terminal appearance belongs in user settings. A temporary personal project override should remain local. A rule forbidding access to production credentials must be implemented through permissions and infrastructure controls, not merely a sentence in CLAUDE.md.</p>
 <p>In a monorepo, frontend formatting instructions should not accidentally govern database migrations. Put specialized guidance close to the relevant code or use appropriate path-scoped rules. Keep the root instructions focused on repository-wide facts and links to specialized material.</p>
 <h2 id="paths-and-syntax-worth-recognizing"><a class="header" href="#paths-and-syntax-worth-recognizing">Paths and syntax worth recognizing</a></h2>
-<p>User guidance commonly lives at ~/.claude/CLAUDE.md. Shared guidance can live in the repository’s CLAUDE.md or .claude/CLAUDE.md, with directory-specific files for local conventions. An @ reference can import another instruction file, helping keep standards modular. Use /memory to inspect relevant instruction sources rather than guessing why a teammate’s experience differs. [24, objective 3.1]</p>
-<p>A rule in .claude/rules can have YAML frontmatter with paths containing glob patterns. A pattern such as **/*.spec.ts can target tests throughout a repository, whereas a directory CLAUDE.md is a better match for conventions confined to one subtree. Keep scoped rules focused enough that unrelated tasks do not load irrelevant material. The exam guide describes path activation in editing terms; consult current docs for precise loading behavior in your version. [24, objective 3.3]</p>
+<p>User guidance commonly lives at ~/.claude/CLAUDE.md. Shared guidance can live in the repository’s CLAUDE.md or .claude/CLAUDE.md, with directory-specific files for local conventions. An @ reference can import another instruction file, helping keep standards modular. Use /memory to inspect relevant instruction sources rather than guessing why a teammate’s experience differs. <a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=12">Exam guide, objective 3.1</a></p>
+<p>A rule in .claude/rules can have YAML frontmatter with paths containing glob patterns. A pattern such as **/*.spec.ts can target tests throughout a repository, whereas a directory CLAUDE.md is a better match for conventions confined to one subtree. Keep scoped rules focused enough that unrelated tasks do not load irrelevant material. The exam guide describes path activation in editing terms; consult current docs for precise loading behavior in your version. <a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=13">Exam guide, objective 3.3</a></p>
 <h2 id="debug-instruction-problems"><a class="header" href="#debug-instruction-problems">Debug instruction problems</a></h2>
 <p>When a guideline is ignored, ask whether it loaded, whether another instruction contradicts it, whether the wording is actionable, and whether the task requires stronger enforcement. “Write good code” is not a testable instruction. “Run the unit suite for the changed package and report any failures” is much clearer.</p>
 <p>Do not put secrets in instruction files. They may be committed, loaded into model context, copied into logs, or shared with collaborators. Prefer references to approved secret-handling mechanisms rather than credentials themselves.</p>
@@ -256,6 +256,7 @@
         <script src="book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/reading-e7bf83b1.js"></script>
 
 
 

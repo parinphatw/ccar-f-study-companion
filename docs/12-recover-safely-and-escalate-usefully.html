@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/reading-3f466840.css">
+        <link rel="stylesheet" href="theme/reading-1d51f336.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-84994a02.js";
+            window.path_to_searchindex_js = "searchindex-88eb9741.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-31301ac8.js"></script>
+        <script src="toc-badb40e2.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -188,12 +188,12 @@
 <p>Northstar’s order lookup succeeds, but the policy service is unavailable. The assistant can still report the observed shipment status and explain that it could not verify credit eligibility. It must not convert the missing policy response into a default approval. A partial answer is useful when it clearly separates confirmed facts from unavailable checks.</p>
 <p>Now suppose a worker says “all checks passed,” but one service actually returned an authentication error. The coordinator should reject that success label and preserve the failure. Error propagation across components is part of the design contract, not an optional detail in logs.</p>
 <h2 id="resolve-multiple-concerns-coherently"><a class="header" href="#resolve-multiple-concerns-coherently">Resolve multiple concerns coherently</a></h2>
-<p>If a customer reports a delayed shipment and a duplicate charge, split the concerns into separate investigations sharing the same verified customer and order facts. Independent reads can proceed in parallel. Keep dependencies and consequential actions gated, then synthesize one coherent response that accounts for both concerns. Track each concern separately so resolving the shipment question does not silently close the billing issue. [24, objective 1.4]</p>
+<p>If a customer reports a delayed shipment and a duplicate charge, split the concerns into separate investigations sharing the same verified customer and order facts. Independent reads can proceed in parallel. Keep dependencies and consequential actions gated, then synthesize one coherent response that accounts for both concerns. Track each concern separately so resolving the shipment question does not silently close the billing issue. <a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=7">Exam guide, objective 1.4</a></p>
 <h2 id="escalation-packet"><a class="header" href="#escalation-packet">Escalation packet</a></h2>
 <p>A useful handoff contains the user’s objective, verified identity or record, checks completed, evidence references, the exact unresolved issue, action state, and the smallest decision needed. For example: “Order N104 is delayed. Shipment status verified at 14:10 UTC. Credit policy could not be retrieved. No credit has been submitted. Please confirm eligibility under policy version X or restore policy-service access.”</p>
 <p>Avoid escalating everything. Escalation has a cost in user attention and time. Define triggers around ambiguity, authority, risk, and repeated failure. Make the routine path effective while ensuring exceptional cases remain visible.</p>
 <h2 id="honor-the-actual-escalation-trigger"><a class="header" href="#honor-the-actual-escalation-trigger">Honor the actual escalation trigger</a></h2>
-<p>An explicit request to speak to a human should be honored without forcing another investigation first. Frustration alone is different: acknowledge it and offer a useful resolution if the user has not requested a human. Escalate when policy is silent or contradictory, not merely when a request sounds complex. If several customer records match, ask for a discriminating identifier rather than selecting the most plausible person. [24, objective 5.2]</p>
+<p>An explicit request to speak to a human should be honored without forcing another investigation first. Frustration alone is different: acknowledge it and offer a useful resolution if the user has not requested a human. Escalate when policy is silent or contradictory, not merely when a request sounds complex. If several customer records match, ask for a discriminating identifier rather than selecting the most plausible person. <a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=20">Exam guide, objective 5.2</a></p>
 <p>For research, a failed source should produce a coverage gap annotation rather than a false empty result. Let workers attempt appropriate local recovery, then return the attempted query, failure type, partial evidence, and permitted alternatives. The coordinator can continue unaffected work without either suppressing the failure or abandoning the whole task.</p>
 <h2 id="security-and-reliability-reinforce-each-other"><a class="header" href="#security-and-reliability-reinforce-each-other">Security and reliability reinforce each other</a></h2>
 <p>Least-privilege credentials reduce the consequences of a mistaken tool call. Idempotency reduces duplicate side effects. Logs with operation identifiers support reconciliation. Source references support review. Tests for adverse conditions expose failures before users encounter them. These controls are useful even if the model becomes more capable, because the surrounding system can still fail.</p>
@@ -261,6 +261,7 @@
         <script src="book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/reading-e7bf83b1.js"></script>
 
 
 

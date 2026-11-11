@@ -4,9 +4,9 @@
 
 Choose scope based on who should share an instruction or setting. Do not confuse natural-language guidance with an enforced security control.
 
-CLAUDE.md provides persistent project or personal context. Rules can be organized in .claude/rules, including path-scoped instructions. Relevant instruction files are assembled as context; conflicting prose is not a reliable enforcement mechanism. Keep guidance concise and inspect what loads. Auto memory is distinct from instructions maintained by the team. [8](sources-and-further-reading.md)
+[CLAUDE.md provides persistent project or personal context](https://code.claude.com/docs/en/memory). Rules can be organized in .claude/rules, including path-scoped instructions. Relevant instruction files are assembled as context; conflicting prose is not a reliable enforcement mechanism. Keep guidance concise and inspect what loads. Auto memory is distinct from instructions maintained by the team.
 
-Claude Code settings use JSON configuration with user, shared project, project-local, and managed sources. Common paths include ~/.claude/settings.json, .claude/settings.json, and .claude/settings.local.json. The current precedence and merging rules belong to settings, not to an imagined universal “last file wins” rule for all instructions. Managed policy is the appropriate area for organization-enforced configuration. [9](sources-and-further-reading.md)
+[Claude Code settings](https://code.claude.com/docs/en/settings) use JSON configuration with user, shared project, project-local, and managed sources. Common paths include ~/.claude/settings.json, .claude/settings.json, and .claude/settings.local.json. The current precedence and merging rules belong to settings, not to an imagined universal “last file wins” rule for all instructions. Managed policy is the appropriate area for organization-enforced configuration.
 
 ## Worked example
 
@@ -16,9 +16,9 @@ In a monorepo, frontend formatting instructions should not accidentally govern d
 
 ## Paths and syntax worth recognizing
 
-User guidance commonly lives at ~/.claude/CLAUDE.md. Shared guidance can live in the repository's CLAUDE.md or .claude/CLAUDE.md, with directory-specific files for local conventions. An @ reference can import another instruction file, helping keep standards modular. Use /memory to inspect relevant instruction sources rather than guessing why a teammate's experience differs. [24, objective 3.1]
+User guidance commonly lives at ~/.claude/CLAUDE.md. Shared guidance can live in the repository's CLAUDE.md or .claude/CLAUDE.md, with directory-specific files for local conventions. An @ reference can import another instruction file, helping keep standards modular. Use /memory to inspect relevant instruction sources rather than guessing why a teammate's experience differs. [Exam guide, objective 3.1](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=12)
 
-A rule in .claude/rules can have YAML frontmatter with paths containing glob patterns. A pattern such as **/*.spec.ts can target tests throughout a repository, whereas a directory CLAUDE.md is a better match for conventions confined to one subtree. Keep scoped rules focused enough that unrelated tasks do not load irrelevant material. The exam guide describes path activation in editing terms; consult current docs for precise loading behavior in your version. [24, objective 3.3]
+A rule in .claude/rules can have YAML frontmatter with paths containing glob patterns. A pattern such as **/*.spec.ts can target tests throughout a repository, whereas a directory CLAUDE.md is a better match for conventions confined to one subtree. Keep scoped rules focused enough that unrelated tasks do not load irrelevant material. The exam guide describes path activation in editing terms; consult current docs for precise loading behavior in your version. [Exam guide, objective 3.3](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=13)
 
 ## Debug instruction problems
 

@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/reading-3f466840.css">
+        <link rel="stylesheet" href="theme/reading-1d51f336.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-84994a02.js";
+            window.path_to_searchindex_js = "searchindex-88eb9741.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-31301ac8.js"></script>
+        <script src="toc-badb40e2.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -181,7 +181,7 @@
                         <h1 id="3-delegate-with-explicit-contracts"><a class="header" href="#3-delegate-with-explicit-contracts">3 Delegate with explicit contracts</a></h1>
 <h2 id="the-decision"><a class="header" href="#the-decision">The decision</a></h2>
 <p>Delegate when a task benefits from separate context, specialized instructions, or independent work. Do not delegate responsibility for the final answer.</p>
-<p>Claude Code subagents operate with their own context and can have specific prompts, tools, and permissions. They are useful for keeping large searches or logs out of the main conversation. A worker’s description influences when it is selected. These capabilities do not imply that every worker automatically receives every relevant fact from the parent. <a href="sources-and-further-reading.html">4</a></p>
+<p><a href="https://code.claude.com/docs/en/sub-agents">Claude Code subagents</a> operate with their own context and can have specific prompts, tools, and permissions. They are useful for keeping large searches or logs out of the main conversation. A worker’s description influences when it is selected. These capabilities do not imply that every worker automatically receives every relevant fact from the parent.</p>
 <h2 id="build-a-useful-assignment"><a class="header" href="#build-a-useful-assignment">Build a useful assignment</a></h2>
 <p>A handoff should identify the question, evidence to inspect, constraints, output format, and completion condition. “Investigate the failure” is weak. “Compare failed order exports from the last deployment with the preceding release; return affected versions, reproducible steps, evidence paths, and unresolved assumptions; do not modify records” is actionable.</p>
 <p>Give workers the research goal and quality criteria without prescribing every investigative step; this permits adaptation while preserving scope. The coordinator should divide work at boundaries with low coupling. Asking one worker to inspect logs and another to inspect a code change can work well. Asking both to edit the same function concurrently introduces merge and interpretation conflicts. Give one owner authority to integrate changes and run the combined checks.</p>
@@ -189,10 +189,10 @@
 <p>Northstar investigates a complaint spike. A shipment worker reports carrier delays, a support worker reports complaint categories, and a policy worker checks whether a recent eligibility change affected responses. Each returns findings with source identifiers and time ranges. The coordinator discovers that the shipment worker used the previous month while the others used the current week. It requests comparable evidence before synthesizing.</p>
 <p>The important failure was not low model intelligence. It was an inconsistent task contract. Three polished reports can still be incompatible inputs.</p>
 <h2 id="blueprint-terminology-and-current-implementations"><a class="header" href="#blueprint-terminology-and-current-implementations">Blueprint terminology and current implementations</a></h2>
-<p>The July 2026 guide calls the spawning mechanism Task and says the coordinator’s allowedTools must include Task. It also describes AgentDefinition with a description, prompt, and tool restrictions. Learn that terminology when interpreting the guide’s examples. Current Claude Code documentation uses Agent for subagent invocation and distinguishes tool availability from tool auto-approval. Do not mechanically copy an old configuration into a new SDK version, or assume allowedTools by itself is a security boundary. Inspect the current SDK types and permission documentation for your runtime. [24, objective 1.3; 4, 11]</p>
+<p>The July 2026 guide calls the spawning mechanism Task and says the coordinator’s allowedTools must include Task. It also describes AgentDefinition with a description, prompt, and tool restrictions. Learn that terminology when interpreting the guide’s examples. Current Claude Code documentation uses Agent for subagent invocation and distinguishes tool availability from tool auto-approval. Do not mechanically copy an old configuration into a new SDK version, or assume allowedTools by itself is a security boundary. Inspect the <a href="https://code.claude.com/docs/en/permissions">current SDK types and permission documentation</a> for your runtime. <a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=6">Exam guide, objective 1.3</a>; <a href="https://code.claude.com/docs/en/sub-agents">subagent documentation</a>; <a href="https://code.claude.com/docs/en/permissions">permission documentation</a></p>
 <p>In the blueprint’s coordinator pattern, route communication and recovery through the coordinator. Pass relevant prior results explicitly, including source metadata; isolated workers should not be expected to know an earlier conversation. Independent workers can be started together rather than serialized across turns. The coordinator can re-delegate a targeted gap after reviewing the synthesis instead of rerunning every worker. Avoid narrowing a broad research question so aggressively that nobody owns an essential subtopic.</p>
 <h2 id="sessions-and-recovery"><a class="header" href="#sessions-and-recovery">Sessions and recovery</a></h2>
-<p>Resume an existing session when its prior evidence is still useful. The guide uses –resume with a named session and fork_session for independent branches from a shared baseline. Forking is suitable for comparing two approaches without mixing their evolving assumptions. When files changed since the earlier analysis, identify the changed files and require targeted rereading. If many old tool results are stale, a fresh session with a structured summary can be safer than blindly resuming. [24, objective 1.7]</p>
+<p>Resume an existing session when its prior evidence is still useful. The guide uses –resume with a named session and fork_session for independent branches from a shared baseline. Forking is suitable for comparing two approaches without mixing their evolving assumptions. When files changed since the earlier analysis, identify the changed files and require targeted rereading. If many old tool results are stale, a fresh session with a structured summary can be safer than blindly resuming. <a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=8">Exam guide, objective 1.7</a></p>
 <p>For example, after a weekend change to the order model, do not let Monday’s resumed agent rely on Friday’s field names. Supply the new commit and changed paths. Save a compact manifest with worker IDs, task states, evidence paths, and completed operation identifiers. After a crash, the coordinator can reload that manifest, verify current state, and resume only unfinished work.</p>
 <h2 id="preserve-uncertainty"><a class="header" href="#preserve-uncertainty">Preserve uncertainty</a></h2>
 <p>A worker’s output should distinguish found, not found, not checked, and failed to retrieve. “No policy exceptions” is misleading if the policy source was unavailable. The parent should preserve those distinctions in its final response, rather than converting a partial report into apparent certainty.</p>
@@ -261,6 +261,7 @@
         <script src="book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/reading-e7bf83b1.js"></script>
 
 
 

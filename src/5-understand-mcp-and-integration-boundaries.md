@@ -4,9 +4,9 @@
 
 Distinguish a standard connection protocol from the policy governing what a connected tool may do.
 
-MCP uses hosts, clients, and servers. The host is the AI application; clients connect it to servers that expose capabilities or context. MCP provides a common interface for tools, resources, and prompts. It does not decide the application's overall reasoning strategy or replace authorization in the underlying service. [6](sources-and-further-reading.md)
+MCP uses [hosts, clients, and servers](https://modelcontextprotocol.io/docs/2026-07-28/learn/architecture). The host is the AI application; clients connect it to servers that expose capabilities or context. MCP provides a common interface for tools, resources, and prompts. It does not decide the application's overall reasoning strategy or replace authorization in the underlying service.
 
-Claude Code can connect to local and remote MCP servers. Connection scope matters: a project integration is different from a personal integration across projects. Configuration, authentication, tool availability, and execution permissions are separate things to inspect when diagnosing a failure. [7](sources-and-further-reading.md)
+Claude Code can [connect to local and remote MCP servers](https://code.claude.com/docs/en/mcp). Connection scope matters: a project integration is different from a personal integration across projects. Configuration, authentication, tool availability, and execution permissions are separate things to inspect when diagnosing a failure.
 
 ## Diagnose the right layer
 
@@ -22,11 +22,11 @@ A second integration returns current inventory. The assistant should read live i
 
 ## Configuration and resources to recognize
 
-The exam guide places shared MCP configuration in project .mcp.json and personal server configuration in ~/.claude.json. Environment references such as ${SERVICE_TOKEN} avoid embedding a literal credential in a committed configuration, although the environment and logs still require protection. Several connected servers can expose tools to one agent; do not assume the agent must disconnect one before using another. [24, objective 2.4]
+The exam guide places shared MCP configuration in project .mcp.json and personal server configuration in ~/.claude.json. Environment references such as ${SERVICE_TOKEN} avoid embedding a literal credential in a committed configuration, although the environment and logs still require protection. Several connected servers can expose tools to one agent; do not assume the agent must disconnect one before using another. [Exam guide, objective 2.4](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=11)
 
 Use resources to expose discoverable context such as a documentation catalog or schema. Use tools for operations such as searching a catalog or retrieving a current record. A useful catalog reduces exploratory calls because the agent can see what material exists before guessing. For standard integrations, evaluate an established server before building a custom one; custom workflows may justify custom implementations. Infrastructure deployment details are outside this exam's stated scope.
 
-At the MCP layer, the error flag is isError. The Messages API client-tool result flag discussed earlier is is_error. Do not interchange the spellings across protocols. A useful custom error payload includes category, retryability, explanation, attempted operation, and any partial result. These payload field names are application conventions, not a claim that MCP mandates that exact schema. [24, objective 2.2]
+At the MCP layer, the error flag is isError. The Messages API client-tool result flag discussed earlier is is_error. Do not interchange the spellings across protocols. A useful custom error payload includes category, retryability, explanation, attempted operation, and any partial result. These payload field names are application conventions, not a claim that MCP mandates that exact schema. [Exam guide, objective 2.2](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=9)
 
 ## Mini lab
 

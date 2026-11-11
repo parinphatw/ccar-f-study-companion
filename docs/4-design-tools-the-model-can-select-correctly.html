@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/reading-3f466840.css">
+        <link rel="stylesheet" href="theme/reading-1d51f336.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-84994a02.js";
+            window.path_to_searchindex_js = "searchindex-88eb9741.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-31301ac8.js"></script>
+        <script src="toc-badb40e2.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -181,7 +181,7 @@
                         <h1 id="4-design-tools-the-model-can-select-correctly"><a class="header" href="#4-design-tools-the-model-can-select-correctly">4 Design tools the model can select correctly</a></h1>
 <h2 id="the-decision"><a class="header" href="#the-decision">The decision</a></h2>
 <p>Make the right operation easy to identify and hard to misuse. Tool design affects both selection and execution quality.</p>
-<p>A custom tool definition includes a name, description, and input_schema. A useful description explains the operation, when to use it, and relevant limitations. Detailed schemas make parameters less ambiguous; examples can clarify intended inputs. <a href="sources-and-further-reading.html">5</a></p>
+<p>A <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools">custom tool definition</a> includes a name, description, and input_schema. A useful description explains the operation, when to use it, and relevant limitations. Detailed schemas make parameters less ambiguous; examples can clarify intended inputs.</p>
 <h2 id="describe-boundaries-rather-than-marketing"><a class="header" href="#describe-boundaries-rather-than-marketing">Describe boundaries rather than marketing</a></h2>
 <p>Compare “Search customer information” with “Find orders by exact order ID or customer email. Returns order IDs and status only. Does not issue refunds or search support messages.” The second description distinguishes neighboring tools and limits mistaken expectations.</p>
 <p>A narrow tool surface often improves safety and testability. Separate read_order from issue_credit because their authority requirements differ. Avoid a generic execute_action tool with an arbitrary action string if a small set of explicit operations would represent the task accurately. However, splitting every tiny step can increase round trips. Choose a boundary that matches a meaningful operation and an enforceable permission.</p>
@@ -189,7 +189,7 @@
 <p>Northstar has search_orders and search_tickets. Claude repeatedly uses search_tickets for an order number because both descriptions say “find customer records.” Rename or clarify the tools and add examples of the identifiers each accepts. Increasing model size is not the first remedy for an unclear interface.</p>
 <p>For issue_credit, use integer minor currency units or a carefully specified decimal representation. Define the currency, order identifier, reason code, and authorization reference. The backend should check maximum amount and eligibility using trusted state. A schema can require amount to be an integer; it cannot by itself prove that the customer is eligible.</p>
 <h2 id="control-selection-without-confusing-it-with-authorization"><a class="header" href="#control-selection-without-confusing-it-with-authorization">Control selection without confusing it with authorization</a></h2>
-<p>The guide distinguishes tool_choice auto, any, and a forced named tool. Auto permits a text-only response. Any requires a tool selection, but does not specify which available tool. A forced selection, expressed as a type of tool with its name, is useful when a particular extraction must happen before enrichment. Process that result before allowing dependent steps. Tool choice directs the model; it does not prove user approval or enforce business prerequisites. Check model and mode compatibility in the current API. [24, objectives 2.3 and 4.3]</p>
+<p>The guide distinguishes tool_choice auto, any, and a forced named tool. Auto permits a text-only response. Any requires a tool selection, but does not specify which available tool. A forced selection, expressed as a type of tool with its name, is useful when a particular extraction must happen before enrichment. Process that result before allowing dependent steps. Tool choice directs the model; it does not prove user approval or enforce business prerequisites. Check model and mode compatibility in the current API. <a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=10">Exam guide, objectives 2.3 and 4.3</a></p>
 <p>Give each worker the tools needed for its role. If a synthesis worker repeatedly needs simple source verification, a narrowly scoped verify_fact tool may avoid needless coordinator round trips. Deep research can still go through the research worker. This is a measured exception to separation of duties, not a reason to give every agent every capability.</p>
 <p>Also inspect the system prompt when routing goes wrong. A rule associating every mention of “document” with one tool can override the distinction you intended in otherwise clear tool descriptions.</p>
 <h2 id="design-useful-errors"><a class="header" href="#design-useful-errors">Design useful errors</a></h2>
@@ -259,6 +259,7 @@
         <script src="book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/reading-e7bf83b1.js"></script>
 
 
 

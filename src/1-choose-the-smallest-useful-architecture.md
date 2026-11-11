@@ -4,7 +4,7 @@
 
 Decide who should choose the next step. A fixed business process usually belongs in application code. Open-ended investigation may need a model to choose tools and revise its approach. A single model call can be enough when all required evidence already fits in the request.
 
-Anthropic distinguishes workflows with predefined paths from agents that dynamically direct their work. It recommends starting simply and adding complexity when it produces a measured benefit. That is a design principle, not a claim that one pattern always wins. [1](sources-and-further-reading.md)
+Anthropic distinguishes [workflows with predefined paths from agents that dynamically direct their work](https://www.anthropic.com/research/building-effective-agents). It recommends starting simply and adding complexity when it produces a measured benefit. That is a design principle, not a claim that one pattern always wins.
 
 ## Understand the alternatives
 

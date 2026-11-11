@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/reading-3f466840.css">
+        <link rel="stylesheet" href="theme/reading-1d51f336.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-84994a02.js";
+            window.path_to_searchindex_js = "searchindex-88eb9741.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-31301ac8.js"></script>
+        <script src="toc-badb40e2.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -181,7 +181,7 @@
                         <h1 id="2-build-a-correct-tool-execution-loop"><a class="header" href="#2-build-a-correct-tool-execution-loop">2 Build a correct tool execution loop</a></h1>
 <h2 id="the-decision"><a class="header" href="#the-decision">The decision</a></h2>
 <p>A model proposes a tool call; your runtime decides whether and how to execute it. Treat the loop as a state machine, not a conversation that happens to contain function names.</p>
-<p>For client tools in the Messages API, Claude returns tool_use blocks and a tool_use stop reason. The application executes the requested operations and returns tool_result blocks matched by tool_use_id. Preserve the assistant content when extending the conversation. Tool results belong in the subsequent user message, with result blocks before ordinary text. A client-side failure can be reported using is_error. Server tools execute on Anthropic infrastructure instead. <a href="sources-and-further-reading.html">2, 3</a></p>
+<p>For <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview">client tools in the Messages API</a>, Claude returns tool_use blocks and a tool_use stop reason. The application executes the requested operations and <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls">returns tool_result blocks matched by tool_use_id</a>. Preserve the assistant content when extending the conversation. Tool results belong in the subsequent user message, with result blocks before ordinary text. A client-side failure can be reported using is_error. Server tools execute on Anthropic infrastructure instead.</p>
 <h2 id="reason-about-states"><a class="header" href="#reason-about-states">Reason about states</a></h2>
 <p>A robust loop has at least five conceptual states: model response received, requested action validated, action executed or rejected, result recorded, and next model step requested. It also needs terminal states for a completed response, refusal, exhausted budget, cancellation, and unrecoverable failure. A truncated response is not the same as a completed answer.</p>
 <p>The runtime should validate tool names and arguments, enforce permission checks, and track the result of each operation. Do not let a sentence such as “the refund is complete” substitute for a successful refund receipt. Conversely, if the operation succeeded but the explanation step failed, do not execute the operation again merely to obtain a nicer final answer.</p>
@@ -189,7 +189,7 @@
 <p>Claude requests get_order with order_id N104. The application checks access, retrieves the record, and records the response with its call identifier. Claude then requests issue_credit. The runtime confirms eligibility and authorization, executes once using a stable idempotency key, and stores the credit receipt. Only then should a final answer state that credit was issued.</p>
 <p>Suppose the credit service times out after submission. The outcome is uncertain. Query the operation status or reconcile using the idempotency key before retrying. Treating timeout as proof that nothing happened can create duplicate credits.</p>
 <h2 id="stop-conditions-are-not-interchangeable"><a class="header" href="#stop-conditions-are-not-interchangeable">Stop conditions are not interchangeable</a></h2>
-<p>For the blueprint’s core loop, continue tool processing on stop_reason equal to tool_use and terminate a normal completed model turn on end_turn. Do not detect completion by searching the assistant’s text for phrases such as “done,” and do not assume that any text block means the work is finished. An iteration ceiling is an operational safeguard, not the primary definition of successful completion. If that ceiling is reached, report an incomplete or escalated state. [24, objective 1.1]</p>
+<p>For the blueprint’s core loop, continue tool processing on stop_reason equal to tool_use and terminate a normal completed model turn on end_turn. Do not detect completion by searching the assistant’s text for phrases such as “done,” and do not assume that any text block means the work is finished. An iteration ceiling is an operational safeguard, not the primary definition of successful completion. If that ceiling is reached, report an incomplete or escalated state. <a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=5">Exam guide, objective 1.1</a></p>
 <h2 id="pseudocode-to-remember"><a class="header" href="#pseudocode-to-remember">Pseudocode to remember</a></h2>
 <p>Start with the authorized goal and a bounded budget. Request a model response. Preserve its content. If tools were requested, validate each call, enforce authorization, execute or return an informative error, append correlated results, and continue. If the response is final, verify completion evidence and stop. For other stop conditions, handle the specific condition rather than guessing from prose.</p>
 <p>This is a conceptual outline, not a drop-in SDK implementation. Production code must also handle streaming, cancellation, API errors, model-specific content blocks, and persistence.</p>
@@ -257,6 +257,7 @@
         <script src="book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/reading-e7bf83b1.js"></script>
 
 
 

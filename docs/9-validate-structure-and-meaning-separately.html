@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/reading-3f466840.css">
+        <link rel="stylesheet" href="theme/reading-1d51f336.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-84994a02.js";
+            window.path_to_searchindex_js = "searchindex-88eb9741.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-31301ac8.js"></script>
+        <script src="toc-badb40e2.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -181,8 +181,8 @@
                         <h1 id="9-validate-structure-and-meaning-separately"><a class="header" href="#9-validate-structure-and-meaning-separately">9 Validate structure and meaning separately</a></h1>
 <h2 id="the-decision"><a class="header" href="#the-decision">The decision</a></h2>
 <p>Choose the right mechanism for each kind of correctness: output shape, factual support, business validity, and permission.</p>
-<p>Structured outputs constrain responses to a supported schema; current Messages API documentation uses output_config.format for JSON output. Strict tool use is a related mechanism for tool names and input schemas. Schema compliance does not establish truth or business eligibility. Handle documented exceptions such as refusal or interrupted generation rather than assuming every API response is a usable business object. <a href="sources-and-further-reading.html">17</a></p>
-<p>An ordinary input_schema alone does not guarantee valid tool inputs. In current strict tool use, enable strict: true on the tool definition for the supported schema guarantees. That distinction matters when translating the guide’s shorthand description of schema-enforced extraction into a real implementation. Strictness still does not validate the truth of extracted values. <a href="sources-and-further-reading.html">17</a></p>
+<p><a href="https://platform.claude.com/docs/en/build-with-claude/structured-outputs">Structured outputs</a> constrain responses to a supported schema; current Messages API documentation uses output_config.format for JSON output. Strict tool use is a related mechanism for tool names and input schemas. Schema compliance does not establish truth or business eligibility. Handle documented exceptions such as refusal or interrupted generation rather than assuming every API response is a usable business object.</p>
+<p>An ordinary input_schema alone does not guarantee valid tool inputs. In <a href="https://platform.claude.com/docs/en/build-with-claude/structured-outputs">current strict tool use</a>, enable strict: true on the tool definition for the supported schema guarantees. That distinction matters when translating the guide’s shorthand description of schema-enforced extraction into a real implementation. Strictness still does not validate the truth of extracted values.</p>
 <h2 id="a-layered-validation-pipeline"><a class="header" href="#a-layered-validation-pipeline">A layered validation pipeline</a></h2>
 <p>First confirm the request completed appropriately. Then parse and validate the expected structure. Next apply deterministic domain checks. Finally check evidence and authorization before any action. These layers catch different errors.</p>
 <p>For a credit recommendation, structure checks may require order_id, currency, amount_minor, and reason. Domain checks verify that the amount is nonnegative, the currency matches the order, and the proposed credit does not exceed the permitted amount. Evidence checks confirm the stated reason exists in the record. Authorization checks determine whether the system may actually issue the credit.</p>
@@ -192,7 +192,7 @@
 <h2 id="model-uncertainty-in-the-schema"><a class="header" href="#model-uncertainty-in-the-schema">Model uncertainty in the schema</a></h2>
 <p>A required field can encourage fabrication if the actual input omits that information. Allow a deliberate unknown or needs_review representation when the task permits it. Distinguish zero from missing, an empty list from an unsuccessful search, and no qualifying records from no access to the data.</p>
 <p>For document extraction, include evidence references alongside fields when useful. A field value with a source location is easier to audit than an unsupported answer. Be careful when combining product features: consult current compatibility documentation rather than assuming every output mode works with every citation feature.</p>
-<p>Optional and nullable are different. An optional property may be absent from an object; a nullable property may be present with null as its value. Decide both separately, following the supported schema dialect. For categories, an enum can include unclear, or other with a detail field, so unusual inputs do not get forced into a false known category. [24, objective 4.3]</p>
+<p>Optional and nullable are different. An optional property may be absent from an object; a nullable property may be present with null as its value. Decide both separately, following the supported schema dialect. For categories, an enum can include unclear, or other with a detail field, so unusual inputs do not get forced into a false known category. <a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=17">Exam guide, objective 4.3</a></p>
 <p>For invoice extraction, keep stated_total separate from a total calculated by trusted code. Compare them and record conflict_detected when appropriate. A corrective request should include the original source, the failed extraction, and the specific validation error. If the required fact exists only in a missing attachment, retrieve that attachment when authorized or report the gap; repeated extraction cannot recover unavailable information.</p>
 <h2 id="chapter-summary"><a class="header" href="#chapter-summary">Chapter summary</a></h2>
 <ul>
@@ -258,6 +258,7 @@
         <script src="book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/reading-e7bf83b1.js"></script>
 
 
 

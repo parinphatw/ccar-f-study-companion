@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/reading-3f466840.css">
+        <link rel="stylesheet" href="theme/reading-1d51f336.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-84994a02.js";
+            window.path_to_searchindex_js = "searchindex-88eb9741.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-31301ac8.js"></script>
+        <script src="toc-badb40e2.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -181,7 +181,7 @@
                         <h1 id="8-write-prompts-as-testable-specifications"><a class="header" href="#8-write-prompts-as-testable-specifications">8 Write prompts as testable specifications</a></h1>
 <h2 id="the-decision"><a class="header" href="#the-decision">The decision</a></h2>
 <p>Specify what a good answer must do, which evidence it may use, and how it should respond when the evidence is insufficient.</p>
-<p>Anthropic recommends defining success criteria and evaluations before prompt optimization. Clarity, representative examples, explicit output requirements, and clear separation of instructions from supplied material are useful techniques. Model-specific prompting guidance can change; do not assume a technique that helped an older model is always necessary for a newer one. <a href="sources-and-further-reading.html">15, 16</a></p>
+<p>Anthropic recommends defining success criteria and evaluations before <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview">prompt optimization</a>. Clarity, representative examples, explicit output requirements, and clear separation of instructions from supplied material are useful techniques. <a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices">Model-specific prompting guidance</a> can change; do not assume a technique that helped an older model is always necessary for a newer one.</p>
 <h2 id="build-a-practical-prompt"><a class="header" href="#build-a-practical-prompt">Build a practical prompt</a></h2>
 <p>For Northstar’s reply writer, state the task: draft a concise explanation for the customer using the supplied order and policy records. State constraints: do not invent delivery dates, do not claim an action was taken without a receipt, and identify missing information. State output: a customer-facing draft plus an internal list of unresolved facts. Supply representative examples, including an ambiguous case, rather than only easy successes.</p>
 <p>Delimiters or labeled sections can separate policy, evidence, and request. Their value is clarity, not magical protection. Retrieved text remains untrusted even inside XML tags. Enforce consequential boundaries in code.</p>
@@ -190,7 +190,7 @@
 <p>If outputs remain wrong, diagnose the source. Did retrieval omit the relevant policy? Are the examples inconsistent? Is the schema missing an unknown state? Is the model being asked to infer a fact that does not exist? A prompt cannot manufacture authoritative evidence.</p>
 <h2 id="review-criteria-that-reduce-false-positives"><a class="header" href="#review-criteria-that-reduce-false-positives">Review criteria that reduce false positives</a></h2>
 <p>“Be conservative” does not define a review policy. Instead, state which categories matter and what evidence qualifies. For a comment review, report a comment that contradicts observable code behavior; do not flag every imprecise stylistic phrase. Define severity using concrete impact. A potential crash on an ordinary input is different from a formatting preference.</p>
-<p>Track dismissed findings by category and detected_pattern. If one category produces many false alarms, temporarily suppress it while improving the rubric and examples. Otherwise it can erode trust in accurate findings elsewhere. A threshold based only on the model saying it is confident is not a substitute for categorical criteria. [24, objectives 4.1 and 4.4]</p>
+<p>Track dismissed findings by category and detected_pattern. If one category produces many false alarms, temporarily suppress it while improving the rubric and examples. Otherwise it can erode trust in accurate findings elsewhere. A threshold based only on the model saying it is confident is not a substitute for categorical criteria. <a href="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=16">Exam guide, objectives 4.1 and 4.4</a></p>
 <h2 id="use-examples-deliberately"><a class="header" href="#use-examples-deliberately">Use examples deliberately</a></h2>
 <p>Suppose tickets can be billing, shipping, or other. Include a ticket mentioning both a late shipment and a duplicate charge, and explain the tie-breaking rule the application actually wants. Otherwise the model must invent one. Keep development examples separate from held-out evaluation examples so that apparent improvement is not merely memorization of the test cases.</p>
 <p>Ask for a concise decision and supporting evidence when appropriate. You do not need to demand private internal reasoning to verify an answer; observable citations, calculations, test results, and rule applications are better review artifacts.</p>
@@ -258,6 +258,7 @@
         <script src="book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/reading-e7bf83b1.js"></script>
 
 
 

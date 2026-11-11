@@ -1,7 +1,0 @@
-.content { max-width: 800px; font-size: 18px; line-height: 1.7; }
-.content main { padding-bottom: 5rem; }
-.content h1 { line-height: 1.2; letter-spacing: -.025em; }
-.content h2 { margin-top: 2.2em; line-height: 1.3; }
-.content a { overflow-wrap: anywhere; }
-.content blockquote { border-left: 4px solid #cb7954; padding: .5rem 1rem; margin-left: 0; }
-@media(max-width: 600px) { .content { font-size: 17px; padding: 0 18px; } .content h1 { font-size: 1.8em; } }

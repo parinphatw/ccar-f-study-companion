@@ -4,7 +4,7 @@
 
 A model proposes a tool call; your runtime decides whether and how to execute it. Treat the loop as a state machine, not a conversation that happens to contain function names.
 
-For client tools in the Messages API, Claude returns tool_use blocks and a tool_use stop reason. The application executes the requested operations and returns tool_result blocks matched by tool_use_id. Preserve the assistant content when extending the conversation. Tool results belong in the subsequent user message, with result blocks before ordinary text. A client-side failure can be reported using is_error. Server tools execute on Anthropic infrastructure instead. [2, 3](sources-and-further-reading.md)
+For [client tools in the Messages API](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview), Claude returns tool_use blocks and a tool_use stop reason. The application executes the requested operations and [returns tool_result blocks matched by tool_use_id](https://platform.claude.com/docs/en/agents-and-tools/tool-use/handle-tool-calls). Preserve the assistant content when extending the conversation. Tool results belong in the subsequent user message, with result blocks before ordinary text. A client-side failure can be reported using is_error. Server tools execute on Anthropic infrastructure instead.
 
 ## Reason about states
 
@@ -20,7 +20,7 @@ Suppose the credit service times out after submission. The outcome is uncertain.
 
 ## Stop conditions are not interchangeable
 
-For the blueprint's core loop, continue tool processing on stop_reason equal to tool_use and terminate a normal completed model turn on end_turn. Do not detect completion by searching the assistant's text for phrases such as “done,” and do not assume that any text block means the work is finished. An iteration ceiling is an operational safeguard, not the primary definition of successful completion. If that ceiling is reached, report an incomplete or escalated state. [24, objective 1.1]
+For the blueprint's core loop, continue tool processing on stop_reason equal to tool_use and terminate a normal completed model turn on end_turn. Do not detect completion by searching the assistant's text for phrases such as “done,” and do not assume that any text block means the work is finished. An iteration ceiling is an operational safeguard, not the primary definition of successful completion. If that ceiling is reached, report an incomplete or escalated state. [Exam guide, objective 1.1](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=5)
 
 ## Pseudocode to remember
 

@@ -4,7 +4,7 @@
 
 Specify what a good answer must do, which evidence it may use, and how it should respond when the evidence is insufficient.
 
-Anthropic recommends defining success criteria and evaluations before prompt optimization. Clarity, representative examples, explicit output requirements, and clear separation of instructions from supplied material are useful techniques. Model-specific prompting guidance can change; do not assume a technique that helped an older model is always necessary for a newer one. [15, 16](sources-and-further-reading.md)
+Anthropic recommends defining success criteria and evaluations before [prompt optimization](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview). Clarity, representative examples, explicit output requirements, and clear separation of instructions from supplied material are useful techniques. [Model-specific prompting guidance](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices) can change; do not assume a technique that helped an older model is always necessary for a newer one.
 
 ## Build a practical prompt
 
@@ -22,7 +22,7 @@ If outputs remain wrong, diagnose the source. Did retrieval omit the relevant po
 
 “Be conservative” does not define a review policy. Instead, state which categories matter and what evidence qualifies. For a comment review, report a comment that contradicts observable code behavior; do not flag every imprecise stylistic phrase. Define severity using concrete impact. A potential crash on an ordinary input is different from a formatting preference.
 
-Track dismissed findings by category and detected_pattern. If one category produces many false alarms, temporarily suppress it while improving the rubric and examples. Otherwise it can erode trust in accurate findings elsewhere. A threshold based only on the model saying it is confident is not a substitute for categorical criteria. [24, objectives 4.1 and 4.4]
+Track dismissed findings by category and detected_pattern. If one category produces many false alarms, temporarily suppress it while improving the rubric and examples. Otherwise it can erode trust in accurate findings elsewhere. A threshold based only on the model saying it is confident is not a substitute for categorical criteria. [Exam guide, objectives 4.1 and 4.4](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=16)
 
 ## Use examples deliberately
 

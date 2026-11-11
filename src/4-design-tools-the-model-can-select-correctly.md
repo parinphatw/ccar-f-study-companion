@@ -4,7 +4,7 @@
 
 Make the right operation easy to identify and hard to misuse. Tool design affects both selection and execution quality.
 
-A custom tool definition includes a name, description, and input_schema. A useful description explains the operation, when to use it, and relevant limitations. Detailed schemas make parameters less ambiguous; examples can clarify intended inputs. [5](sources-and-further-reading.md)
+A [custom tool definition](https://platform.claude.com/docs/en/agents-and-tools/tool-use/define-tools) includes a name, description, and input_schema. A useful description explains the operation, when to use it, and relevant limitations. Detailed schemas make parameters less ambiguous; examples can clarify intended inputs.
 
 ## Describe boundaries rather than marketing
 
@@ -20,7 +20,7 @@ For issue_credit, use integer minor currency units or a carefully specified deci
 
 ## Control selection without confusing it with authorization
 
-The guide distinguishes tool_choice auto, any, and a forced named tool. Auto permits a text-only response. Any requires a tool selection, but does not specify which available tool. A forced selection, expressed as a type of tool with its name, is useful when a particular extraction must happen before enrichment. Process that result before allowing dependent steps. Tool choice directs the model; it does not prove user approval or enforce business prerequisites. Check model and mode compatibility in the current API. [24, objectives 2.3 and 4.3]
+The guide distinguishes tool_choice auto, any, and a forced named tool. Auto permits a text-only response. Any requires a tool selection, but does not specify which available tool. A forced selection, expressed as a type of tool with its name, is useful when a particular extraction must happen before enrichment. Process that result before allowing dependent steps. Tool choice directs the model; it does not prove user approval or enforce business prerequisites. Check model and mode compatibility in the current API. [Exam guide, objectives 2.3 and 4.3](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=10)
 
 Give each worker the tools needed for its role. If a synthesis worker repeatedly needs simple source verification, a narrowly scoped verify_fact tool may avoid needless coordinator round trips. Deep research can still go through the research worker. This is a measured exception to separation of duties, not a reason to give every agent every capability.
 

@@ -18,7 +18,7 @@ Now suppose a worker says “all checks passed,” but one service actually retu
 
 ## Resolve multiple concerns coherently
 
-If a customer reports a delayed shipment and a duplicate charge, split the concerns into separate investigations sharing the same verified customer and order facts. Independent reads can proceed in parallel. Keep dependencies and consequential actions gated, then synthesize one coherent response that accounts for both concerns. Track each concern separately so resolving the shipment question does not silently close the billing issue. [24, objective 1.4]
+If a customer reports a delayed shipment and a duplicate charge, split the concerns into separate investigations sharing the same verified customer and order facts. Independent reads can proceed in parallel. Keep dependencies and consequential actions gated, then synthesize one coherent response that accounts for both concerns. Track each concern separately so resolving the shipment question does not silently close the billing issue. [Exam guide, objective 1.4](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=7)
 
 ## Escalation packet
 
@@ -28,7 +28,7 @@ Avoid escalating everything. Escalation has a cost in user attention and time. D
 
 ## Honor the actual escalation trigger
 
-An explicit request to speak to a human should be honored without forcing another investigation first. Frustration alone is different: acknowledge it and offer a useful resolution if the user has not requested a human. Escalate when policy is silent or contradictory, not merely when a request sounds complex. If several customer records match, ask for a discriminating identifier rather than selecting the most plausible person. [24, objective 5.2]
+An explicit request to speak to a human should be honored without forcing another investigation first. Frustration alone is different: acknowledge it and offer a useful resolution if the user has not requested a human. Escalate when policy is silent or contradictory, not merely when a request sounds complex. If several customer records match, ask for a discriminating identifier rather than selecting the most plausible person. [Exam guide, objective 5.2](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=20)
 
 For research, a failed source should produce a coverage gap annotation rather than a false empty result. Let workers attempt appropriate local recovery, then return the attempted query, failure type, partial evidence, and permitted alternatives. The coordinator can continue unaffected work without either suppressing the failure or abandoning the whole task.
 

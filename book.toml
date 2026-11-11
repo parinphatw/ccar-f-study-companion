@@ -13,6 +13,7 @@ default-theme = "light"
 preferred-dark-theme = "navy"
 smart-punctuation = true
 additional-css = ["theme/reading.css"]
+additional-js = ["theme/reading.js"]
 git-repository-url = "https://github.com/parinphatw/ccar-f-study-companion"
 site-url = "/ccar-f-study-companion/"
 

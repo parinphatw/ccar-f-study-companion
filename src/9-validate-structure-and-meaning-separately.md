@@ -4,9 +4,9 @@
 
 Choose the right mechanism for each kind of correctness: output shape, factual support, business validity, and permission.
 
-Structured outputs constrain responses to a supported schema; current Messages API documentation uses output_config.format for JSON output. Strict tool use is a related mechanism for tool names and input schemas. Schema compliance does not establish truth or business eligibility. Handle documented exceptions such as refusal or interrupted generation rather than assuming every API response is a usable business object. [17](sources-and-further-reading.md)
+[Structured outputs](https://platform.claude.com/docs/en/build-with-claude/structured-outputs) constrain responses to a supported schema; current Messages API documentation uses output_config.format for JSON output. Strict tool use is a related mechanism for tool names and input schemas. Schema compliance does not establish truth or business eligibility. Handle documented exceptions such as refusal or interrupted generation rather than assuming every API response is a usable business object.
 
-An ordinary input_schema alone does not guarantee valid tool inputs. In current strict tool use, enable strict: true on the tool definition for the supported schema guarantees. That distinction matters when translating the guide's shorthand description of schema-enforced extraction into a real implementation. Strictness still does not validate the truth of extracted values. [17](sources-and-further-reading.md)
+An ordinary input_schema alone does not guarantee valid tool inputs. In [current strict tool use](https://platform.claude.com/docs/en/build-with-claude/structured-outputs), enable strict: true on the tool definition for the supported schema guarantees. That distinction matters when translating the guide's shorthand description of schema-enforced extraction into a real implementation. Strictness still does not validate the truth of extracted values.
 
 ## A layered validation pipeline
 
@@ -26,7 +26,7 @@ A required field can encourage fabrication if the actual input omits that inform
 
 For document extraction, include evidence references alongside fields when useful. A field value with a source location is easier to audit than an unsupported answer. Be careful when combining product features: consult current compatibility documentation rather than assuming every output mode works with every citation feature.
 
-Optional and nullable are different. An optional property may be absent from an object; a nullable property may be present with null as its value. Decide both separately, following the supported schema dialect. For categories, an enum can include unclear, or other with a detail field, so unusual inputs do not get forced into a false known category. [24, objective 4.3]
+Optional and nullable are different. An optional property may be absent from an object; a nullable property may be present with null as its value. Decide both separately, following the supported schema dialect. For categories, an enum can include unclear, or other with a detail field, so unusual inputs do not get forced into a false known category. [Exam guide, objective 4.3](https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2F6nizmqk8tpzpfjvt6qmmav7rh%2Fpublic%2F1783542750%2FClaude+Certified+Architect+%E2%80%93+Foundations+Exam+Guide.pdf#page=17)
 
 For invoice extraction, keep stated_total separate from a total calculated by trusted code. Compare them and record conflict_detected when appropriate. A corrective request should include the original source, the failed extraction, and the specific validation error. If the required fact exists only in a missing attachment, retrieve that attachment when authorized or report the gap; repeated extraction cannot recover unavailable information.
 

@@ -28,7 +28,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/reading-3f466840.css">
+        <link rel="stylesheet" href="theme/reading-1d51f336.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -36,10 +36,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-84994a02.js";
+            window.path_to_searchindex_js = "searchindex-88eb9741.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-31301ac8.js"></script>
+        <script src="toc-badb40e2.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -181,7 +181,7 @@
                         <h1 id="1-choose-the-smallest-useful-architecture"><a class="header" href="#1-choose-the-smallest-useful-architecture">1 Choose the smallest useful architecture</a></h1>
 <h2 id="the-decision"><a class="header" href="#the-decision">The decision</a></h2>
 <p>Decide who should choose the next step. A fixed business process usually belongs in application code. Open-ended investigation may need a model to choose tools and revise its approach. A single model call can be enough when all required evidence already fits in the request.</p>
-<p>Anthropic distinguishes workflows with predefined paths from agents that dynamically direct their work. It recommends starting simply and adding complexity when it produces a measured benefit. That is a design principle, not a claim that one pattern always wins. <a href="sources-and-further-reading.html">1</a></p>
+<p>Anthropic distinguishes <a href="https://www.anthropic.com/research/building-effective-agents">workflows with predefined paths from agents that dynamically direct their work</a>. It recommends starting simply and adding complexity when it produces a measured benefit. That is a design principle, not a claim that one pattern always wins.</p>
 <h2 id="understand-the-alternatives"><a class="header" href="#understand-the-alternatives">Understand the alternatives</a></h2>
 <p>Consider three Northstar tasks. Categorizing a supplied support ticket into a known queue can be one model call with a constrained output. Checking order eligibility, calculating a refund, and requesting approval follows a workflow: each step has a known place and the calculation belongs in code. Investigating a vague report that several shipments disappeared may need an agent to search orders, compare warehouse events, and decide which hypothesis to test next.</p>
 <p>The distinction is control flow, not the number of prompts. A workflow may contain ten model calls and still have a fixed route. An agent might solve a request in two calls, but the next operation depended on evidence it discovered. Tools alone do not make a system an autonomous agent.</p>
@@ -255,6 +255,7 @@
         <script src="book-609e4cb8.js"></script>
 
         <!-- Custom JS scripts -->
+        <script src="theme/reading-e7bf83b1.js"></script>
 
 
 
