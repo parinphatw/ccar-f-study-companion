@@ -8,6 +8,7 @@ description = "An unofficial, independent CCAR-F study companion with original e
 build-dir = "docs"
 
 [output.html]
+no-section-label = true
 default-theme = "light"
 preferred-dark-theme = "navy"
 smart-punctuation = true
