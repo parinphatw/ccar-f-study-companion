@@ -1,0 +1,50 @@
+# Official objective coverage map
+
+This map uses the task statements in the July 2026 guide. Page references are PDF page numbers, not inferred print labels. Read each objective’s detailed knowledge and skills in the official guide as well as the chapters listed here.
+
+- 1.1 | Design and implement agentic loops for autonomous task execution | Chapters 1, 2 | Official PDF page 5
+- 1.2 | Orchestrate multi-agent systems with coordinator-subagent patterns | Chapters 3 | Official PDF page 5
+- 1.3 | Configure subagent invocation, context passing, and spawning | Chapters 3 | Official PDF page 6
+- 1.4 | Implement multi-step workflows with enforcement and handoff patterns | Chapters 2, 7, 12 | Official PDF page 7
+- 1.5 | Apply Agent SDK hooks for tool call interception and data normalization | Chapters 7 | Official PDF page 7
+- 1.6 | Design task decomposition strategies for complex workflows | Chapters 1, 3, 10 | Official PDF page 8
+- 1.7 | Manage session state, resumption, and forking | Chapters 3 | Official PDF page 8
+- 2.1 | Design effective tool interfaces with clear descriptions and boundaries | Chapters 4 | Official PDF page 9
+- 2.2 | Implement structured error responses for MCP tools | Chapters 4, 5, 12 | Official PDF page 9
+- 2.3 | Distribute tools appropriately across agents and configure tool choice | Chapters 4 | Official PDF page 10
+- 2.4 | Integrate MCP servers into Claude Code and agent workflows | Chapters 5 | Official PDF page 11
+- 2.5 | Select and apply built-in tools (Read, Write, Edit, Bash, Grep, Glob) effectively | Chapters 11 | Official PDF page 11
+- 3.1 | Configure CLAUDE.md files with appropriate hierarchy, scoping, and modular organization | Chapters 6 | Official PDF page 12
+- 3.2 | Create and configure custom slash commands and skills | Chapters 7 | Official PDF page 13
+- 3.3 | Apply path-specific rules for conditional convention loading | Chapters 6 | Official PDF page 13
+- 3.4 | Determine when to use plan mode vs direct execution | Chapters 7 | Official PDF page 14
+- 3.5 | Apply iterative refinement techniques for progressive improvement | Chapters 7, 8 | Official PDF page 14
+- 3.6 | Integrate Claude Code into CI/CD pipelines | Chapters 7, 10 | Official PDF page 15
+- 4.1 | Design prompts with explicit criteria to improve precision and reduce false positives | Chapters 8 | Official PDF page 16
+- 4.2 | Apply few-shot prompting to improve output consistency and quality | Chapters 8 | Official PDF page 16
+- 4.3 | Enforce structured output using tool use and JSON schemas | Chapters 4, 9 | Official PDF page 17
+- 4.4 | Implement validation, retry, and feedback loops for extraction quality | Chapters 8, 9 | Official PDF page 18
+- 4.5 | Design efficient batch processing strategies | Chapters 10 | Official PDF page 18
+- 4.6 | Design multi-instance and multi-pass review architectures | Chapters 10 | Official PDF page 19
+- 5.1 | Manage conversation context to preserve critical information across long interactions | Chapters 11 | Official PDF page 19
+- 5.2 | Design effective escalation and ambiguity resolution patterns | Chapters 12 | Official PDF page 20
+- 5.3 | Implement error propagation strategies across multi-agent systems | Chapters 3, 12 | Official PDF page 21
+- 5.4 | Manage context effectively in large codebase exploration | Chapters 3, 11 | Official PDF page 21
+- 5.5 | Design human review workflows and confidence calibration | Chapters 10 | Official PDF page 22
+- 5.6 | Preserve information provenance and handle uncertainty in multi-source synthesis | Chapters 11, 12 | Official PDF page 23
+
+## Scope and version reminders
+
+The official guide explicitly excludes detailed streaming, computer use, vision, authentication protocols, MCP hosting, cloud-provider setup, embedding and vector database implementation, model benchmarking, and tokenization. This book mentions some operational boundaries only to prevent misconceptions, not to enlarge the exam syllabus. Prompt caching is included only at awareness level.
+
+Three distinctions deserve special attention: the blueprint’s Task terminology versus current Agent naming; tool approval settings versus actual tool availability and enforcement; and ordinary tool schemas versus strict structured-output guarantees. Also distinguish optional properties from nullable values. Use the guide to understand the exam vocabulary and current documentation to implement a real application.
+
+## A seven session study plan
+
+Session 1: Chapters 1 to 3. Trace a loop and write two complete worker handoffs.
+Session 2: Chapters 4 and 5. Design adjacent tools and five distinct error results.
+Session 3: Chapters 6 and 7. Sketch repository instructions, a path rule, a skill, and a CI review flow.
+Session 4: Chapters 8 and 9. Write extraction examples and test structural versus semantic failures.
+Session 5: Chapter 10. Build a small labeled review set and explain a batch deadline calculation.
+Session 6: Chapters 11 and 12. Design a recovery manifest and an escalation packet.
+Session 7: Solve every case without looking, then explain why each rejected answer fails. Revisit all objective rows you cannot explain from memory.

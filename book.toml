@@ -1,0 +1,24 @@
+[book]
+title = "Claude Architect Foundations • Study Companion"
+language = "en"
+src = "src"
+description = "An unofficial, independent CCAR-F study companion with original examples and practice questions."
+
+[build]
+build-dir = "docs"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+smart-punctuation = true
+additional-css = ["theme/reading.css"]
+git-repository-url = "https://github.com/parinphatw/ccar-f-study-companion"
+site-url = "/ccar-f-study-companion/"
+
+[output.html.search]
+enable = true
+limit-results = 30
+use-boolean-and = true
+
+[output.html.print]
+enable = true
